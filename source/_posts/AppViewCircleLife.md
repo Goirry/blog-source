@@ -4,9 +4,48 @@ categories: iOS
 tags: [iOS, OC, 生命周期]
 ---
 
-应用和视图的生命周期，应该算是移动端开发最基本的平台机制了吧。
+应用和视图的生命周期，应该算是iOS开发最基本的平台机制了吧。
 
-## 调用顺序
+## 应用生命周期的代理方法
+
+UIApplicationDelegate协议的代理方法:
+
+应用启动但还没进入状态保存时调用
+```
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
+
+应用启动基本完成程序准备开始运行时调用
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
+
+当应用程序进入活动状态调用
+```
+- (void)applicationDidBecomeActive:(UIApplication *)application
+```
+
+当应用程序将要进入非活动状态调用
+```
+- (void)applicationWillResignActive:(UIApplication *)application
+```
+
+当程序退到后台的时候调用
+```
+- (void)applicationDidEnterBackground:(UIApplication *)application
+```
+
+当程序进入前台的时候调用
+```
+- (void)applicationWillEnterForeground:(UIApplication *)application
+```
+
+当程序将要退出时被调用
+```
+- (void)applicationWillTerminate:(UIApplication *)application
+```
+
+## 生命周期方法的调用顺序
 清楚生命周期就清楚了应用的整体流程，对代码的执行顺序有所了解，知道系统会在什么情况下调用什么方法，也就可以对程序更加进一步的理解和掌控。闲话不多说，下面我们来看一下应用从启动到终止都调用了哪些方法:
 
 + 启动应用
@@ -57,5 +96,17 @@ applicationDidBecomeActive: // Hide
 
 <!--more-->
 
+## 生命周期的流程图片
 
+当应用从开始加载到进入后台:
+![](http://7xnejb.com1.z0.glb.clouddn.com/images/app_enter_background.png "应用从开始加载到进入后台的生命周期流程图")
 
+当用户切换应用时:
+![](http://7xnejb.com1.z0.glb.clouddn.com/images/app_enter_foreground.png "用户切换应用时的生命周期流程图")
+
+ViewController的生命周期:
+![](http://7xnejb.com1.z0.glb.clouddn.com/images/UIViewController_Life_Circle.jpg "ViewController的生命周期图")
+
+以上是生命周期的图片，非常清晰且详细的描述了应用以及ViewController的生命周期
+
+把流程图看懂`iOS应用开发的生命周期`自然了然于胸。
