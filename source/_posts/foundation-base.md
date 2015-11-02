@@ -29,7 +29,7 @@ NSSize size = CGSizeMake(50, 100);
 CGRect rect = CGRectMake(0, 20, 50, 80);
 CGRect rect1 = {CGPointZero, CGSizeMake(200, 200)};
 
-NSString *strPoint = NSStringFromPoint(point); // 输出:{10, 20}
+NSString *strPoint = NSStringFromCGPoint(point); // 输出:{10, 20}
 
 CGPointZero == CGPointMake(0, 0); // 常用原点
 
