@@ -186,6 +186,7 @@ int main()
 ```
 
 `@synthesize age`去实现`@property int age`
+
 ` = _age`去访问成员变量`_age`来填充`setter`和`getter`
 
 如果成员变量不存在(没有在`.h`文件中创建)，就会在`@implemention`中自动生成`@private`的成员变量。

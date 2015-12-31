@@ -66,13 +66,6 @@ OC当中没有空指针异常。
 
 <!-- more -->
 
-iOS类中的属性声明规律:
-
-- `UI`控件用`weak`
-- `OC`对象用`strong`
-- 基本数据类型用`assign`
-- `NSString`用`copy`
-
 代码规范: 返回BOOL类型的方法名，一般以`is`开头，所以返回BOOL值的getter可以写成`getter=isFunc`。
 
 <span style="color:#e73751">Tips:</span> 当两个类循环嵌套引用时，出现内存泄露的解决方案: 一端用`retain`，一段用`assign`。
@@ -138,6 +131,14 @@ ARC特点:
 	- strong 强指针 适用于`OC`对象类型 引用计数器`+1`。
 	- weak 弱指针 适用于`OC`对象类型 如果指向的对象被释放，其指向`nil`，可以有效避免野指针。
 	- assign 适用于非`OC`对象类型 赋值特性，不涉及引用计数。
+
+iOS类中的属性声明规律:
+
+- `UI`控件用`weak`
+- `OC`对象用`strong`
+- 基本数据类型用`assign`
+- `NSString`用`copy`
+- `Delegate`用`weak`
 
 <span style="color:#e73751">Tips:</span> 循环嵌套引用时，一端用`strong`，一端用`weak`。
 
